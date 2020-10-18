@@ -1,0 +1,5 @@
+.idea/
+docker-compose/redis/data/*
+.DS_Store
+vendor/
+vendor/*

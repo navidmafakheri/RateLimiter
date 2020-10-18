@@ -1,0 +1,7 @@
+<?
+
+namespace App;
+
+interface StorageInterface {
+
+}

@@ -1,0 +1,43 @@
+version: "3.7"
+services:
+  app:
+    build:
+      args:
+        user: www
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: test
+    container_name: test-app
+    restart: unless-stopped
+    working_dir: /var/www/
+    volumes:
+      - ./:/var/www
+    networks:
+      - test
+
+  nginx:
+    image: nginx:alpine
+    container_name: test-nginx
+    restart: unless-stopped
+    ports:
+      - 8000:80
+    volumes:
+      - ./:/var/www
+      - ./docker-compose/nginx:/etc/nginx/conf.d/
+    networks:
+      - test
+      
+  redis:
+    image: redis:6.0.5-alpine
+    container_name: test-redis
+    ports:
+      - 6379:6379
+    volumes:
+      - ./docker-compose/redis/data:/data
+    networks:
+     - test    
+
+networks:
+  test:
+    driver: bridge
