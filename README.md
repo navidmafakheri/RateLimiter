@@ -18,8 +18,11 @@ Redis has a data structure that we can use – the sorted set. Here’s the algo
 
 
 # Installation
-1- Download Composer or update composer self-update.
+
+1- Running`docker-compose up -d` starts the containers in the background
+
+2- Download Composer or update composer self-update.
 ```bash
 docker-compose exec app composer install
 ```
-2- You should now be able to visit the path to where you installed the app and see the default home page http://127.0.0.1:8000/.
+3- You should now be able to visit the path to where you installed the app and see the default home page http://127.0.0.1:8000/.
